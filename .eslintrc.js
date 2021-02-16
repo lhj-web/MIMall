@@ -15,6 +15,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-console': 0,
     'no-unused-vars': 0,
+    'no-alert': 0,
     'consistent-return': 0,
     'no-useless-return': 0,
     'max-classes-per-file': 0,

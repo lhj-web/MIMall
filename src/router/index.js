@@ -12,16 +12,14 @@ const Order = () => import('components/content/order/Order.vue');
 const OrderConfirm = () => import('components/content/order/OrderConfirm.vue');
 const OrderPay = () => import('components/content/order/OrderPay.vue');
 const OrderList = () => import('components/content/order/OrderList.vue');
+const Alipay = () => import('components/content/order/Alipay.vue');
 
 const routes = [
   {
     path: '/',
-    redirect: '/home',
-  },
-  {
-    path: '/home',
     name: 'Home',
     component: Home,
+    redirect: '/index',
     children: [
       {
         path: '/index',
@@ -64,6 +62,11 @@ const routes = [
         path: '/pay',
         name: 'OrderPay',
         component: OrderPay,
+      },
+      {
+        path: '/alipay',
+        name: 'Alipay',
+        component: Alipay,
       },
     ],
   },
