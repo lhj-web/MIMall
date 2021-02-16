@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   env: {
     node: true,
+    commonjs: true,
   },
   extends: [
     'plugin:vue/essential',
@@ -20,6 +21,8 @@ module.exports = {
     'no-useless-return': 0,
     'max-classes-per-file': 0,
     'arrow-parens': 0,
+    'quote-props': 0,
     quotes: 0,
+    'global-require': 0,
   },
 };

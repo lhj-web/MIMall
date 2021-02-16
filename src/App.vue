@@ -5,10 +5,20 @@
 </template>
 
 <script>
-import storage from 'storage/index';
+// import storage from 'storage/index';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      res: {},
+    };
+  },
+  mounted() {
+    this.axios.get('/user/login').then(res => {
+      this.res = res;
+    });
+  },
 };
 </script>
 
