@@ -1,14 +1,22 @@
-pseudo-element(args...)
+// 伪元素
+pseudo-element(arg)
   content ''
   display inline-block
   width 55px
   height 55px
-  background url(args) no-repeat center
+  background url(arg) no-repeat center
   background-size contain
 
+// 弹性盒居中
 centered()
   width 1226px
   margin 0 auto
   display flex
   justify-content space-between
   align-items center
+
+// icon样式
+iconStyle(arg)
+  display inline-block
+  background url(arg) no-repeat center
+  background-size contain

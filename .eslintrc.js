@@ -24,5 +24,7 @@ module.exports = {
     'quote-props': 0,
     quotes: 0,
     'global-require': 0,
+    'import/no-unresolved': 0,
+    'import/no-absolute-path': 0,
   },
 };
