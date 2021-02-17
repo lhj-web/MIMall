@@ -5,6 +5,7 @@ import router from './router';
 import store from './store';
 import App from './App.vue';
 // import env from './env';
+import 'assets/css/reset.css';
 
 const mock = true;
 if (mock) {
