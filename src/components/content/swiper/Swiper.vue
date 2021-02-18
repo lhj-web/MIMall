@@ -28,7 +28,9 @@ export default {
           el: '.swiper-pagination',
           clickable: true,
         },
-        autoplay: true,
+        autoplay: {
+          disableOnInteraction: false,
+        },
         loop: true,
         effect: 'cube',
         navigation: {
@@ -51,6 +53,8 @@ export default {
   --swiper-theme-color: #ff6600;/* 设置Swiper风格 */
   --swiper-navigation-color: #6D6875;/* 单独设置按钮颜色 */
   --swiper-navigation-size: 48px;/* 设置按钮大小 */
+  .swiper-button-prev
+    left 274px
   .swiper-img
     width 100%
     height 451px

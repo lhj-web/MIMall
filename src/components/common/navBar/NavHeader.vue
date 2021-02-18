@@ -215,6 +215,7 @@ export default {
             box-shadow 0 7px 6px 0 rgba(0, 0, 0, .11)
             opacity 0
             transition height .5s
+            z-index 666
             .product
               position relative
               float left
