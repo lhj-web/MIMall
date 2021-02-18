@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import VueAwesomeSwiper from 'vue-awesome-swiper';
 import router from './router';
 import store from './store';
 import App from './App.vue';
 // import env from './env';
 import 'assets/css/reset.css';
+import 'swiper/css/swiper.css';
 
 const mock = true;
 if (mock) {
@@ -13,6 +15,7 @@ if (mock) {
 }
 
 Vue.use(VueAxios, axios);
+Vue.use(VueAwesomeSwiper);
 Vue.config.productionTip = false;
 
 axios.defaults.baseURL = '/api';
