@@ -6,9 +6,11 @@
           <a href="javascript:;" v-for="(item, index) in navMenu" :key="index">{{item}}</a>
         </div>
         <div class="navbar-user">
-          <a href="javascript:;">登录</a>
-          <a href="javascript:;">注册</a>
-          <a href="javascript:;" class="cart">
+          <a href="javascript:;" v-if="username">{{username}}</a>
+          <a href="javascript:;" v-else @click="login">登录</a>
+          <a href="javascript:;" v-if="username">我的订单</a>
+          <a href="javascript:;" v-else>注册</a>
+          <a href="javascript:;" class="cart" @click="goCart">
             <span class="icon-cart"></span>购物车(0)
           </a>
         </div>
@@ -24,13 +26,13 @@
             <span>小米手机</span>
             <div class="children">
               <ul>
-                <li class="product" v-for="(item, index) in products" :key="index">
-                  <a href="#" target="_blank">
+                <li class="product" v-for="(item, index) in phoneList" :key="index">
+                  <a :href="'/product/'+item.id" target="_blank">
                     <div class="pro-img">
-                      <img :src="item.img">
+                      <img :src="item.mainImage">
                     </div>
                     <div class="pro-name">{{item.name}}</div>
-                    <div class="pro-price">{{item.price}}</div>
+                    <div class="pro-price">{{item.price | currency}}</div>
                   </a>
                 </li>
               </ul>
@@ -56,13 +58,13 @@
             <span>Redmi红米</span>
             <div class="children">
               <ul>
-                <li class="product" v-for="(item, index) in products" :key="index">
+                <li class="product" v-for="(item, index) in phoneList" :key="index">
                   <a href="#" target="_blank">
                     <div class="pro-img">
-                      <img :src="item.img">
+                      <img :src="item.mainImage">
                     </div>
                     <div class="pro-name">{{item.name}}</div>
-                    <div class="pro-price">{{item.price}}</div>
+                    <div class="pro-price">{{item.price | currency}}</div>
                   </a>
                 </li>
               </ul>
@@ -82,12 +84,6 @@
 </template>
 
 <script>
-import navMiOne from '/public/img/nav-img/nav-1.png';
-import navMiTwo from '/public/img/nav-img/nav-2.png';
-import navMiThree from '/public/img/nav-img/nav-3.png';
-import navMiFour from '/public/img/nav-img/nav-4.png';
-import navMiFive from '/public/img/nav-img/nav-5.png';
-import navMiSix from '/public/img/nav-img/nav-6.png';
 import navTVOne from '/public/img/nav-img/nav-3-1.jpg';
 import navTVTwo from '/public/img/nav-img/nav-3-2.jpg';
 import navTVThree from '/public/img/nav-img/nav-3-3.png';
@@ -100,22 +96,8 @@ export default {
   data() {
     return {
       navMenu: ['小米商城', 'MUI', '云服务', '协议规则'],
-      products: [
-        { name: '小米CC9', price: '￥1799.00元', img: navMiOne },
-        { name: '小米CC9e', price: '￥1299.00元', img: navMiTwo },
-        { name: '小米CC9 美图定制版', price: '￥2599.00元', img: navMiThree },
-        { name: '小米9', price: '￥2599.00元', img: navMiFour },
-        { name: '小米9 Pro 5G', price: '￥3699.00元', img: navMiFive },
-        { name: '小米MIX Alpha', price: '￥19999.00元', img: navMiSix },
-      ],
-      Redmi: [
-        { name: '小米CC9', price: '￥1799.00元', img: navMiOne },
-        { name: '小米CC9e', price: '￥1299.00元', img: navMiTwo },
-        { name: '小米CC9 美图定制版', price: '￥2599.00元', img: navMiThree },
-        { name: '小米9', price: '￥2599.00元', img: navMiFour },
-        { name: '小米9 Pro 5G', price: '￥3699.00元', img: navMiFive },
-        { name: '小米MIX Alpha', price: '￥19999.00元', img: navMiSix },
-      ],
+      username: '',
+      phoneList: [],
       TV: [
         { name: '小米壁画电视 65寸', price: '￥6999.00元', img: navTVOne },
         { name: '小米全面屏电视E55A', price: '￥1999.00元', img: navTVTwo },
@@ -125,6 +107,36 @@ export default {
         { name: '查看全部', price: '查看全部', img: navTVSix },
       ],
     };
+  },
+  mounted() {
+    this.getProductList();
+  },
+  filters: {
+    currency(val) {
+      if (!val) {
+        return '0.00';
+      }
+      return `￥${val.toFixed(2)}元`;
+    },
+  },
+  methods: {
+    login() {
+      this.$router.push('/login');
+    },
+    getProductList() {
+      this.axios.get('/products', {
+        params: {
+          categoryId: '100012',
+        },
+      }).then(res => {
+        if (res.list.length > 6) {
+          this.phoneList = res.list.slice(0, 6);
+        }
+      });
+    },
+    goCart() {
+      this.$router.push('/cart');
+    },
   },
 };
 </script>
@@ -198,6 +210,7 @@ export default {
             width 1226px
             height 0
             border 1px solid #E5E5E5
+            background #ffffff
             overflow hidden
             box-shadow 0 7px 6px 0 rgba(0, 0, 0, .11)
             opacity 0
