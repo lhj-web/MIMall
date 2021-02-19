@@ -17,4 +17,5 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '~assets/css/stylus/btn.styl'
 </style>

@@ -19,7 +19,7 @@
               <div class="item-info">
                 <h3>{{item.name}}</h3>
                 <p>{{item.subtitle}}</p>
-                <p class="price">{{item.price | currency}}</p>
+                <p class="price" @click="addCart(item.id)">{{item.price | currency}}</p>
               </div>
             </div>
           </div>
@@ -58,6 +58,17 @@ export default {
       }).then(res => {
         this.phoneList = [res.list.slice(6, 10), res.list.slice(10, 14)];
       });
+    },
+    addCart(id) {
+      this.$emit('showMod');
+      // this.axios.post('/carts', {
+      //   productId: id,
+      //   selected: true,
+      // }).then(res => {
+
+      // }).catch(() => {
+      //   this.showModal = true;
+      // });
     },
   },
 };

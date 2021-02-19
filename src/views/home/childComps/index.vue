@@ -117,22 +117,38 @@
       </div>
       <div class="banner">
         <a :href="'/product'+30">
-          <img src="/img/banner-1.png" alt />
+          <img src="/img/banner-1.png" />
         </a>
       </div>
-      <product-box />
+      <product-box @showMod="showMod"/>
     </div>
     <service-bar />
+    <modal
+      title="提示"
+      confirmText="查看详情"
+      btnType="1"
+      modalType="middle"
+      :showModal="showModal"
+      @submit="goToCart"
+      @cancle="showModal=false"
+    >
+      <template v-slot:body>
+        <p>商品添加成功</p>
+      </template>
+    </modal>
   </div>
 </template>
 
 <script>
+import Modal from '../../../components/common/navBar/Modal.vue';
 import ServiceBar from '../../../components/common/navBar/ServiceBar.vue';
 import ProductBox from '../../../components/content/Index/ProductBox.vue';
 import Swiper from '../../../components/content/swiper/Swiper.vue';
 
 export default {
-  components: { ServiceBar, Swiper, ProductBox },
+  components: {
+    ServiceBar, Swiper, ProductBox, Modal,
+  },
   name: 'Index',
   data() {
     return {
@@ -288,7 +304,16 @@ export default {
           img: '/img/ads/ads-4.jpg',
         },
       ],
+      showModal: false,
     };
+  },
+  methods: {
+    goToCart() {
+      this.$router.push('/carts');
+    },
+    showMod() {
+      this.showModal = true;
+    },
   },
 };
 </script>
