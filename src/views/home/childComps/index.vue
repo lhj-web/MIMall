@@ -120,6 +120,7 @@
           <img src="/img/banner-1.png" alt />
         </a>
       </div>
+      <product-box />
     </div>
     <service-bar />
   </div>
@@ -127,10 +128,11 @@
 
 <script>
 import ServiceBar from '../../../components/common/navBar/ServiceBar.vue';
+import ProductBox from '../../../components/content/Index/ProductBox.vue';
 import Swiper from '../../../components/content/swiper/Swiper.vue';
 
 export default {
-  components: { ServiceBar, Swiper },
+  components: { ServiceBar, Swiper, ProductBox },
   name: 'Index',
   data() {
     return {
