@@ -13,6 +13,7 @@ const OrderConfirm = () => import('components/content/order/OrderConfirm.vue');
 const OrderPay = () => import('components/content/order/OrderPay.vue');
 const OrderList = () => import('components/content/order/OrderList.vue');
 const Alipay = () => import('components/content/order/Alipay.vue');
+const Login = () => import('components/common/login/Login.vue');
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
         component: Detail,
       },
     ],
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
   },
   {
     path: '/cart',

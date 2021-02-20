@@ -9,9 +9,8 @@
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-else @click="login">登录</a>
           <a href="javascript:;" v-if="username">我的订单</a>
-          <a href="javascript:;" v-else>注册</a>
           <a href="javascript:;" class="cart" @click="goCart">
-            <span class="icon-cart"></span>购物车(0)
+            <span class="icon-cart"></span>购物车({{cartCount}})
           </a>
         </div>
       </div>
@@ -29,7 +28,7 @@
                 <li class="product" v-for="(item, index) in phoneList" :key="index">
                   <a :href="'/product/'+item.id" target="_blank">
                     <div class="pro-img">
-                      <img :src="item.mainImage">
+                      <img v-lazy="item.mainImage">
                     </div>
                     <div class="pro-name">{{item.name}}</div>
                     <div class="pro-price">{{item.price | currency}}</div>
@@ -43,9 +42,9 @@
             <div class="children">
               <ul>
                 <li class="product" v-for="(item, index) in TV" :key="index">
-                  <a href="#" target="_blank">
+                  <a href="/product/30" target="_blank">
                     <div class="pro-img">
-                      <img :src="item.img">
+                      <img v-lazy="item.img">
                     </div>
                     <div class="pro-name">{{item.name}}</div>
                     <div class="pro-price">{{item.price}}</div>
@@ -59,9 +58,9 @@
             <div class="children">
               <ul>
                 <li class="product" v-for="(item, index) in phoneList" :key="index">
-                  <a href="#" target="_blank">
+                  <a :href="'/product/'+item.id" target="_blank">
                     <div class="pro-img">
-                      <img :src="item.mainImage">
+                      <img v-lazy="item.mainImage">
                     </div>
                     <div class="pro-name">{{item.name}}</div>
                     <div class="pro-price">{{item.price | currency}}</div>
@@ -84,6 +83,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import navTVOne from '/public/img/nav-img/nav-3-1.jpg';
 import navTVTwo from '/public/img/nav-img/nav-3-2.jpg';
 import navTVThree from '/public/img/nav-img/nav-3-3.png';
@@ -96,7 +96,6 @@ export default {
   data() {
     return {
       navMenu: ['小米商城', 'MUI', '云服务', '协议规则'],
-      username: '',
       phoneList: [],
       TV: [
         { name: '小米壁画电视 65寸', price: '￥6999.00元', img: navTVOne },
@@ -110,6 +109,9 @@ export default {
   },
   mounted() {
     this.getProductList();
+  },
+  computed: {
+    ...mapState(['username', 'cartCount']),
   },
   filters: {
     currency(val) {
@@ -132,6 +134,11 @@ export default {
         if (res.list.length > 6) {
           this.phoneList = res.list.slice(0, 6);
         }
+      });
+    },
+    getCartCount() {
+      this.axios.get('/carts/products/sum').then((res = 0) => {
+        this.$store.dispatch('saveCartCount', res);
       });
     },
     goCart() {
@@ -161,6 +168,7 @@ export default {
           text-align center
           background colorA
           color #ffffff
+          margin-right 0
           .icon-cart
             width 16px
             height 12px
@@ -215,7 +223,7 @@ export default {
             box-shadow 0 7px 6px 0 rgba(0, 0, 0, .11)
             opacity 0
             transition height .5s
-            z-index 666
+            z-index 777
             .product
               position relative
               float left

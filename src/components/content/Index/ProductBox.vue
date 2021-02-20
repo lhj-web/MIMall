@@ -4,8 +4,8 @@
       <h2>手机</h2>
       <div class="wrapper">
         <div class="banner-left">
-          <a :href="'/product'+35">
-            <img src="/img/mix-alpha.jpg" />
+          <a :href="'/product/'+35">
+            <img v-lazy="'/img/mix-alpha.jpg'" />
           </a>
         </div>
         <div class="list-box">
@@ -14,7 +14,7 @@
               <span :class="{'new-pro': index%2===0}" v-if="index%2===0">新品</span>
               <span :class="{'kill-pro': index%2!==0}" v-else>秒杀</span>
               <div class="item-img">
-                <img :src="item.mainImage"/>
+                <img v-lazy="item.mainImage"/>
               </div>
               <div class="item-info">
                 <h3>{{item.name}}</h3>

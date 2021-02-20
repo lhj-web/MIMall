@@ -1,8 +1,20 @@
 <template>
   <div class="wrapper">
     <swiper :options="swiperOption">
+      <swiper-slide>
+        <a href="javascript:;">
+          <img :src="swiperImg1" class="swiper-img"/>
+        </a>
+      </swiper-slide>
       <swiper-slide v-for="(item, index) in banners" :key="index">
-        <a href="#"><img :src="item" class="swiper-img" /></a>
+        <a href="javascript:;">
+          <img v-lazy="item" class="swiper-img" />
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="javascript:;">
+          <img :src="swiperImg5" class="swiper-img"/>
+        </a>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
       <div class="swiper-button-prev" slot="button-prev"></div>
@@ -22,7 +34,9 @@ export default {
   name: 'HomeSwipe',
   data() {
     return {
-      banners: [swiperImg1, swiperImg2, swiperImg3, swiperImg4, swiperImg5],
+      swiperImg1,
+      swiperImg5,
+      banners: [swiperImg2, swiperImg3, swiperImg4],
       swiperOption: {
         pagination: {
           el: '.swiper-pagination',
@@ -49,10 +63,10 @@ export default {
   margin 0 auto
   overflow hidden
   height 0
-  padding-bottom: 31.25%
-  --swiper-theme-color: #ff6600;/* 设置Swiper风格 */
-  --swiper-navigation-color: #6D6875;/* 单独设置按钮颜色 */
-  --swiper-navigation-size: 48px;/* 设置按钮大小 */
+  padding-bottom 31.25%
+  --swiper-theme-color #ff6600 /* 设置Swiper风格 */
+  --swiper-navigation-color #6D6875 /* 单独设置按钮颜色 */
+  --swiper-navigation-size 48px /* 设置按钮大小 */
   .swiper-button-prev
     left 274px
   .swiper-img

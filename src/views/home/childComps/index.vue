@@ -8,7 +8,7 @@
             <div class="children">
               <ul v-for="(item, index) in menuList" :key="index">
                 <li v-for="(item, index) in item" :key="index">
-                  <a :href="'/product'+item.id">
+                  <a :href="'/product/'+item.id">
                     <img :src="item.img" />
                     {{item.name}}
                   </a>
@@ -21,7 +21,7 @@
             <div class="children">
               <ul v-for="(item, index) in menuList" :key="index">
                 <li v-for="(item, index) in item" :key="index">
-                  <a :href="'/product'+item.id">
+                  <a :href="'/product/'+item.id">
                     <img :src="item.img" />
                     {{item.name}}
                   </a>
@@ -34,7 +34,7 @@
             <div class="children">
               <ul v-for="(item, index) in menuList" :key="index">
                 <li v-for="(item, index) in item" :key="index">
-                  <a :href="'/product'+item.id">
+                  <a :href="'/product/'+item.id">
                     <img :src="item.img" />
                     {{item.name}}
                   </a>
@@ -47,7 +47,7 @@
             <div class="children">
               <ul v-for="(item, index) in menuList" :key="index">
                 <li v-for="(item, index) in item" :key="index">
-                  <a :href="'/product'+item.id">
+                  <a :href="'/product/'+item.id">
                     <img :src="item.img" />
                     {{item.name}}
                   </a>
@@ -60,7 +60,7 @@
             <div class="children">
               <ul v-for="(item, index) in menuList" :key="index">
                 <li v-for="(item, index) in item" :key="index">
-                  <a :href="'/product'+item.id">
+                  <a :href="'/product/'+item.id">
                     <img :src="item.img" />
                     {{item.name}}
                   </a>
@@ -73,7 +73,7 @@
             <div class="children">
               <ul v-for="(item, index) in menuList" :key="index">
                 <li v-for="(item, index) in item" :key="index">
-                  <a :href="'/product'+item.id">
+                  <a :href="'/product/'+item.id">
                     <img :src="item.img" />
                     {{item.name}}
                   </a>
@@ -86,7 +86,7 @@
             <div class="children">
               <ul v-for="(item, index) in menuList" :key="index">
                 <li v-for="(item, index) in item" :key="index">
-                  <a :href="'/product'+item.id">
+                  <a :href="'/product/'+item.id">
                     <img :src="item.img" />
                     {{item.name}}
                   </a>
@@ -99,7 +99,7 @@
             <div class="children">
               <ul v-for="(item, index) in menuList" :key="index">
                 <li v-for="(item, index) in item" :key="index">
-                  <a :href="'/product'+item.id">
+                  <a :href="'/product/'+item.id">
                     <img :src="item.img" />
                     {{item.name}}
                   </a>
@@ -111,13 +111,13 @@
       </div>
       <swiper />
       <div class="ads-box">
-        <a :href="'/product'+item.id" v-for="(item, index) in adsList" :key="index">
-          <img :src="item.img" />
+        <a :href="'/product/'+item.id" v-for="(item, index) in adsList" :key="index">
+          <img v-lazy="item.img" />
         </a>
       </div>
       <div class="banner">
-        <a :href="'/product'+30">
-          <img src="/img/banner-1.png" />
+        <a :href="'/product/'+30">
+          <img v-lazy="'/img/banner-1.png'" />
         </a>
       </div>
       <product-box @showMod="showMod"/>

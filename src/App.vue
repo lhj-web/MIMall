@@ -13,6 +13,24 @@ export default {
     return {
     };
   },
+  mounted() {
+    if (this.$cookie.userId) {
+      this.getUser();
+      this.getCartCount();
+    }
+  },
+  methods: {
+    getUser() {
+      this.axios.get('/user').then((res = {}) => {
+        this.$store.dispatch('saveUserName', res.username);
+      });
+    },
+    getCartCount() {
+      this.axios.get('/cart/products/sum').then((res = {}) => {
+        this.$store.dispatch('saveCartCount', res);
+      });
+    },
+  },
 };
 </script>
 
