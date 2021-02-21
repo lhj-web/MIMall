@@ -10,7 +10,7 @@
           <a href="javascript:;" v-else @click="login">登录</a>
           <a href="javascript:;" v-if="username">我的订单</a>
           <a href="javascript:;" class="cart" @click="goCart">
-            <span class="icon-cart"></span>购物车({{cartCount}})
+            <span class="icon-cart"></span>购物车(0)
           </a>
         </div>
       </div>
@@ -109,6 +109,7 @@ export default {
   },
   mounted() {
     this.getProductList();
+    console.log(this.cartCount);
   },
   computed: {
     ...mapState(['username', 'cartCount']),

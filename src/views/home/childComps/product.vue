@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <product-params :title="product.name">
-      <a href class="btn">立即购买</a>
+      <a href="javascript:;" class="btn">立即购买</a>
     </product-params>
     <div class="content">
       <div class="item-bg">
