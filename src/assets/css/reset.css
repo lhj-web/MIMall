@@ -180,7 +180,7 @@ body {
   font-family: Arial, 'Microsoft Yahei', 'Helvetica Neue', Helvetica, sans-serif;
   color: #333;
   font-size: 0.28em;
-  line-height: 1;
+  line-height: 1.35;
   -webkit-text-size-adjust: none;
 }
 hr {
@@ -190,6 +190,6 @@ hr {
   border-top: 0.02rem solid #cacaca;
 }
 a {
-  color: #ccc;
+  color: #000000;
   text-decoration: none;
 }

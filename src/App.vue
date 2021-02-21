@@ -14,7 +14,7 @@ export default {
     };
   },
   mounted() {
-    if (this.$cookie.userId) {
+    if (this.$cookie.get('userId')) {
       this.getUser();
       this.getCartCount();
     }
@@ -26,7 +26,7 @@ export default {
       });
     },
     getCartCount() {
-      this.axios.get('/cart/products/sum').then((res = {}) => {
+      this.axios.get('/carts/products/sum').then((res = {}) => {
         this.$store.dispatch('saveCartCount', res);
       });
     },

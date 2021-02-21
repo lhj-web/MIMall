@@ -11,10 +11,10 @@ import App from './App.vue';
 import 'assets/css/reset.css';
 import 'swiper/css/swiper.css';
 
-const mock = true;
-if (mock) {
-  require('./mock/api');
-}
+// const mock = true;
+// if (mock) {
+//   require('./mock/api');
+// }
 
 Vue.use(VueAxios, axios);
 Vue.use(VueAwesomeSwiper);
@@ -30,12 +30,12 @@ axios.defaults.timeout = 8000;
 
 axios.interceptors.response.use(response => {
   const res = response.data;
-  const path = location.hash;
+  const path = window.location.pathname;
   if (res.status === 0) {
     return res.data;
   }
   if (res.status === 10) {
-    if (path !== 'index') {
+    if (path !== '/index') {
       window.location.href = '/login';
     }
   } else {

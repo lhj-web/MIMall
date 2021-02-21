@@ -26,6 +26,5 @@ module.exports = {
     'global-require': 0,
     'import/no-unresolved': 0,
     'import/no-absolute-path': 0,
-    'no-restricted-globals': 0,
   },
 };
