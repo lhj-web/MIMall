@@ -1,4 +1,4 @@
-# xiaomi
+# MiMall
 
 ## Project setup
 ```

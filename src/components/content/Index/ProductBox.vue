@@ -60,15 +60,16 @@ export default {
       });
     },
     addCart(id) {
-      this.$emit('showMod');
-      // this.axios.post('/carts', {
-      //   productId: id,
-      //   selected: true,
-      // }).then(res => {
-
-      // }).catch(() => {
-      //   this.showModal = true;
-      // });
+      this.axios.post('/carts', {
+        productId: id,
+        selected: true,
+      }).then(res => {
+        this.$emit('showMod');
+        console.log(res);
+        this.$store.dispatch('saveCartCount', res.cartTotalQuantity);
+      }).catch(() => {
+        this.showModal = true;
+      });
     },
   },
 };

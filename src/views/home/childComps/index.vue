@@ -309,7 +309,7 @@ export default {
   },
   methods: {
     goToCart() {
-      this.$router.push('/carts');
+      this.$router.push('/cart');
     },
     showMod() {
       this.showModal = true;

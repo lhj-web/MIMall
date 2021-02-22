@@ -1,0 +1,35 @@
+@import '~assets/css/stylus/mixins.styl'
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix:before,.clearfix:after{
+  content:' ';
+  display:table;
+}
+.clearfix:after{
+  clear: both;
+}
+
+.container
+  width 1226px
+  margin 0 auto
+
+.header-logo
+  background colorA
+  display inline-block
+  width 55px
+  height 55px
+  a
+    display inline-block
+    width 110px
+    &::before
+      pseudo-element('/img/mi-logo.png')
+      transition margin 0.2s
+    &::after
+      pseudo-element('/img/mi-home.png')
+    &:hover::before
+      margin-left -55px
+      transition margin 0.2s
