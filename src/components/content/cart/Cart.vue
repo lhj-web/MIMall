@@ -142,8 +142,6 @@ export default {
       const isCheck = this.list.every(item => !item.productSelected);
       if (isCheck) {
         this.$message.warning('请选择一件商品');
-      } else {
-        this.$router.push('/order/confirm');
       }
     },
   },

@@ -8,8 +8,6 @@ const Index = () => import('views/home/childComps/Index.vue');
 const Product = () => import('views/home/childComps/Product.vue');
 const Detail = () => import('views/home/childComps/Detail.vue');
 const Cart = () => import('components/content/cart/Cart.vue');
-const Order = () => import('components/content/order/Order.vue');
-const OrderConfirm = () => import('components/content/order/OrderConfirm.vue');
 const Login = () => import('components/common/login/Login.vue');
 
 const routes = [
@@ -45,18 +43,6 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: Cart,
-  },
-  {
-    path: '/order',
-    name: 'Order',
-    component: Order,
-    children: [
-      {
-        path: 'confirm',
-        name: 'Confirm',
-        component: OrderConfirm,
-      },
-    ],
   },
 ];
 
