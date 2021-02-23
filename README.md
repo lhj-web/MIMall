@@ -1,18 +1,18 @@
-# MiMall
+# MiMall🎉🎉
 
 > 使用Vue全家桶构建的PC端小米商城
 
-## 简介
+## 简介🎈
 
 此项目是一个使用Vue全家桶实现的PC端小米商城，
 涉及登录、商品展示、购物车、下单等页面
 
-## 技术栈
+## 技术栈✨
 
 vue2 + vuex + vue-router + webpack + ES6/7 +  stylus + flex + svg等
 
 
-## 项目运行
+## 项目运行🛠
 
 #### 注意：由于涉及 ES6/7 等新属性，node 需要 6.0 以上版本
 
@@ -24,7 +24,7 @@ npm install 或 yarn
 npm run serve
 ```
 
-## 说明
+## 说明🍕
 
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ 🌹
 
@@ -32,7 +32,7 @@ npm run serve
 >  如有问题请直接在 Issues 中提，或者您发现问题并有非常好的解决方案 👍
 
 
-# 项目结构
+## 项目结构🌲
 
 ```
 |-- MiMall
