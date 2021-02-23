@@ -4,6 +4,7 @@ import VueAxios from 'vue-axios';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import VueLazyload from 'vue-lazyload';
 import VueCookie from 'vue-cookie';
+import { Message } from 'element-ui';
 import router from './router';
 import store from './store';
 import App from './App.vue';
@@ -23,6 +24,8 @@ Vue.use(VueLazyload, {
 });
 Vue.use(VueCookie);
 Vue.config.productionTip = false;
+
+Vue.prototype.$message = Message;
 
 axios.defaults.baseURL = '/api';
 axios.defaults.timeout = 8000;

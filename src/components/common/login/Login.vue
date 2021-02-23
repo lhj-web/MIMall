@@ -14,10 +14,10 @@
             <span>扫码登录</span>
           </h3>
           <div class="input">
-            <input type="text" placeholder="请输入帐号" v-model="username" />
+            <input type="text" placeholder="请输入账号" v-model="username" />
           </div>
           <div class="input">
-            <input type="password" placeholder="请输入密码" v-model="password" />
+            <input type="password" placeholder="请输入密码" @keyup.enter="login" v-model="password" />
           </div>
           <div class="btn-box">
             <a href="javascript:;" class="btn" @click="login">登录</a>
@@ -52,8 +52,8 @@ export default {
   name: 'login',
   data() {
     return {
-      username: '',
-      password: '',
+      username: 'admin',
+      password: 'admin',
       userId: '',
     };
   },
@@ -64,6 +64,7 @@ export default {
         username,
         password,
       }).then((res) => {
+        this.$message.success('登陆成功');
         this.$cookie.set('userId', res.id, { expires: 'Session' });
         // this.$store.dispatch('saveUserName',res.username);
         this.saveUserName(res.username);

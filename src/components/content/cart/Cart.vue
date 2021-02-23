@@ -30,7 +30,7 @@
                 ></span>
               </div>
               <div class="item-name">
-                <img v-lazy="item.productMainImage" alt />
+                <img v-lazy="item.productMainImage"/>
                 <span>{{item.productName + ' , ' + item.productSubtitle}}</span>
               </div>
               <div class="item-price">{{item.productPrice}}</div>

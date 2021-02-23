@@ -10,9 +10,6 @@ const Detail = () => import('views/home/childComps/Detail.vue');
 const Cart = () => import('components/content/cart/Cart.vue');
 const Order = () => import('components/content/order/Order.vue');
 const OrderConfirm = () => import('components/content/order/OrderConfirm.vue');
-const OrderPay = () => import('components/content/order/OrderPay.vue');
-const OrderList = () => import('components/content/order/OrderList.vue');
-const Alipay = () => import('components/content/order/Alipay.vue');
 const Login = () => import('components/common/login/Login.vue');
 
 const routes = [
@@ -55,24 +52,9 @@ const routes = [
     component: Order,
     children: [
       {
-        path: '/confirm',
+        path: 'confirm',
         name: 'Confirm',
         component: OrderConfirm,
-      },
-      {
-        path: '/list',
-        name: 'OrderList',
-        component: OrderList,
-      },
-      {
-        path: '/pay',
-        name: 'OrderPay',
-        component: OrderPay,
-      },
-      {
-        path: '/alipay',
-        name: 'Alipay',
-        component: Alipay,
       },
     ],
   },
